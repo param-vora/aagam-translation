@@ -1,12 +1,12 @@
 import streamlit as st
 import pandas as pd
 from google.cloud import translate_v3 as translate
-from openai import OpenAI
+import openai
 import os
 from config import OPENAI_API_KEY, PARENT
 
 # Setup code
-client = OpenAI()
+client = openai.OpenAI(api_key=OPENAI_API_KEY)
 translate_client = translate.TranslationServiceClient()
 
 # Default prompts
