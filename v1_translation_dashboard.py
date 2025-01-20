@@ -1,12 +1,12 @@
 import streamlit as st
 import pandas as pd
 from google.cloud import translate_v3 as translate
-import openai
+from openai import OpenAI
 import os
 from config import OPENAI_API_KEY, PARENT
 
 # Setup code
-openai.api_key = OPENAI_API_KEY
+client = OpenAI(api_key=OPENAI_API_KEY)
 translate_client = translate.TranslationServiceClient()
 
 # Default prompts
@@ -56,7 +56,7 @@ def translate_text_v3(text, target_language="en"):
 def refine_with_gpt(text, prompt=""):
     """GPT refinement call"""
     try:
-        response = openai.chat.completions.create(
+        response = client.chat.completions.create(
             model="gpt-4o-mini",
             messages=[
                 {"role": "system", "content": "You are an expert specializing in Jain philosophical texts."},
