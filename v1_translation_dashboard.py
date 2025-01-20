@@ -6,7 +6,7 @@ import os
 from config import OPENAI_API_KEY, PARENT
 
 # Setup code
-client = OpenAI(api_key=OPENAI_API_KEY)
+client = OpenAI()
 translate_client = translate.TranslationServiceClient()
 
 # Default prompts
