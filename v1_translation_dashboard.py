@@ -6,7 +6,6 @@ import os
 from config import OPENAI_API_KEY, PARENT
 
 # Setup code
-os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = 'aagam-translation-2.json'
 openai.api_key = OPENAI_API_KEY
 translate_client = translate.TranslationServiceClient()
 
